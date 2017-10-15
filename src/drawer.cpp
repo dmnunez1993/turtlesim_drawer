@@ -256,10 +256,6 @@ void Drawer::timerCallback(const ros::TimerEvent&, ros::Publisher twist_pub)    
     }
 }
 
-void callback(const ros::TimerEvent& event) {
-        cout << "callback timer" << endl;
-}
-
 void Drawer::run() {
     ros::NodeHandle nh;
     ros::Subscriber pose_sub = nh.subscribe("turtle1/pose", 1, &Drawer::poseCallback, this);
