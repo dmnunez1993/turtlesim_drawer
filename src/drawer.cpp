@@ -270,7 +270,7 @@ void Drawer::run() {
 int main(int argc, char** argv)  {
     ros::init(argc, argv, "drawer_node", ros::init_options::AnonymousName);
     Drawer drawer;
-    Path path(square_distances, square_angles);
+    Path path(star_distances, star_angles);
     drawer.setPath(path);
     drawer.run();
 }
