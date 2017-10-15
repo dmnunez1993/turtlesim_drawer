@@ -155,8 +155,6 @@ bool Drawer::hasStopped()   {
 }
 
 bool Drawer::rotateClockwise(double goal, double source) {
-
-
     if ((angle_to_degrees(goal) - angle_to_degrees(source) + 360) % 360 < 180)   {
         return true;
     }   else    {
