@@ -343,13 +343,13 @@ bool Drawer::startCallback(std_srvs::Empty::Request& request, std_srvs::Empty::R
 }
 
 bool Drawer::stopCallback(std_srvs::Empty::Request& request, std_srvs::Empty::Response& response)  {
-    if (isRunning())    {
+    if (isStarted())    {
         d_last_state = d_state;
         d_state = IDLE;
         ROS_INFO("Stopping...");
         ROS_INFO("READY");
     }   else    {
-        ROS_INFO("Already paused!!");
+        ROS_INFO("Already stoped!!");
     }
 
     return true;
@@ -388,7 +388,6 @@ bool Drawer::resumeCallback(std_srvs::Empty::Request& request, std_srvs::Empty::
 }
 
 bool Drawer::shapeCallback(turtlesim_drawer::Shape::Request& request, turtlesim_drawer::Shape::Response& response)  {
-    cout << request.shape << endl;
     if (request.shape=="star")  {
         Path path(star_distances, star_angles);
         setPath(path);
