@@ -60,17 +60,15 @@ $( document ).ready(function() {
           drawer.gotoxy(turtle_position.x, turtle_position.y);
           drawer.draw();
       } else {
-          if (document.getElementById('turtleFollower'))    {
-              canvas = document.getElementById('turtleFollower');
-              w = canvas.width;
-              h = canvas.height;
-              turtle_x = ((message.x/12)*w);
-              turtle_y = h - ((message.y/12)*h);
-              turtle_position = new Position();
-              turtle_position.setPosition(turtle_x, turtle_y);
-              drawer = new Drawer();
-              drawer.init(canvas, turtle_position.x, turtle_position.y);
-          }
+          canvas = document.getElementById('turtleFollower');
+          w = canvas.width;
+          h = canvas.height;
+          turtle_x = ((message.x/12)*w);
+          turtle_y = h - ((message.y/12)*h);
+          turtle_position = new Position();
+          turtle_position.setPosition(turtle_x, turtle_y);
+          drawer = new Drawer();
+          drawer.init(canvas, turtle_position.x, turtle_position.y);
       }
     });
 
@@ -145,9 +143,11 @@ $( document ).ready(function() {
             var request = new ROSLIB.ServiceRequest();
 
             startClient.callService(request, function(result) {
-                drawer.erase();
-                drawer = null;
+
             });
+
+            drawer.erase();
+            drawer = null;
 
             start_requested = true;
             $( this ).prop('disabled', true);
