@@ -128,7 +128,7 @@ include_directories(
 
 add_executable(drawer_node src/drawer_node/drawer.cpp)
 target_link_libraries(drawer_node ${catkin_LIBRARIES})
-# add_dependencies(drawer_node)
+add_dependencies(drawer_node turtlesim_drawer_generate_messages_cpp)
 
 ## Add cmake target dependencies of the library
 ## as an example, code may need to be generated before libraries
