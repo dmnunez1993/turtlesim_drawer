@@ -208,7 +208,7 @@ catkin_install_python(
   src/controller_node/controller_node
   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}/web_controller)
 
-## install(FILES
-##   controller_node/controller_node.launch
-##   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}/002_headers
-## )
+install(FILES
+  launch/turtlesim_drawer.launch
+  DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}/launch
+)

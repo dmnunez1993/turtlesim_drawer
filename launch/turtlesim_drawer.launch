@@ -1,0 +1,10 @@
+<launch>
+
+  <include file="$(find rosbridge_server)/launch/rosbridge_websocket.launch" >
+     <arg name="port" value="9090"/>
+  </include>
+
+  <node pkg="turtlesim" name="turtlesim_node" type="turtlesim_node" />
+  <node pkg="turtlesim_drawer" name="drawer_node" type="drawer_node" />
+  <node pkg="turtlesim_drawer" name="controller_node" type="controller_node" />
+</launch>
