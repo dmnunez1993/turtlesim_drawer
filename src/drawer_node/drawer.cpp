@@ -1,6 +1,7 @@
 #include <boost/bind.hpp>
 #include <ros/ros.h>
 #include <turtlesim/Pose.h>
+#include <turtlesim/TeleportAbsolute.h>
 #include <geometry_msgs/Twist.h>
 #include <std_srvs/Empty.h>
 #include <fstream>
@@ -161,6 +162,9 @@ void Drawer::setupDrawer()  {
     path.reset();
     d_first_goal_set = true;
     d_state = FORWARD;
+    cout << d_pose->x << endl;
+    cout << d_pose->y << endl;
+    cout << d_pose->theta << endl;
     d_goal.x = cos(d_pose->theta) * path.getCurrentDistance() + d_pose->x;
     d_goal.y = sin(d_pose->theta) * path.getCurrentDistance() + d_pose->y;
     d_goal.theta = d_pose->theta;
@@ -248,7 +252,6 @@ void Drawer::stopTurn(ros::Publisher twist_pub) {
         if (path.finished())    {
             ROS_INFO("DONE");
             ROS_INFO("READY");
-            //ros::shutdown();
             d_state = IDLE;
             return;
         }
@@ -331,7 +334,8 @@ bool Drawer::startCallback(std_srvs::Empty::Request& request, std_srvs::Empty::R
     if (!isStarted())    {
         ROS_INFO("Starting...");
         reset();
-        ros::Duration(1).sleep(); //Waits for pose update
+        ros::topic::waitForMessage<turtlesim::Pose>("turtle1/pose", nh);
+        ros::Duration(0.1).sleep(); //Waits for pose callback update
         setupDrawer();
         d_last_state = d_state;
         d_state = FORWARD;
