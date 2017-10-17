@@ -83,7 +83,6 @@ $( document ).ready(function() {
           drawer.draw();
       }
 
-
     });
 
     var statTopic = new ROSLIB.Topic({

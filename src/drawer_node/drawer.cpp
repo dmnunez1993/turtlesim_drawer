@@ -118,6 +118,7 @@ void Path::reset(void)  {
     amount_of_goals = distances.size();
 }
 
+/* Drawer class */
 class Drawer    {
     private:
         ros::NodeHandle nh;
@@ -216,7 +217,7 @@ bool Drawer::isRunning()    {
 }
 
 bool Drawer::isStarted()  {
-    /* Determines whether the drawer is paused or not */
+    /* Determines whether the drawer is running */
     return d_state != IDLE;
 }
 
