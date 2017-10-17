@@ -24,7 +24,7 @@ Setup ROS environment:
 
 Create a catkin workspace as per the instructions in http://wiki.ros.org/catkin/Tutorials/create_a_workspace
 
-Get the code:
+Get the source code:
 
     cd ~/catkin_ws/src/
     git clone https://github.com/dmnunez1993/turtlesim_drawer.git
@@ -44,6 +44,6 @@ Launch:
 
     roslaunch turtlesim_drawer turtlesim_drawer.launch
 
-From a web broser visit http://localhost:12000
+From a web browser visit http://localhost:12000
 
 Enjoy!!
