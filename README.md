@@ -32,7 +32,7 @@ Get the code:
 Install:
 
     cd ~/catkin_ws
-    catkin_make Install
+    catkin_make install
 
 ### Run
 
