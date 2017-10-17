@@ -5,7 +5,7 @@ Node for drawing shapes using the trace left by turtlesim.
 ### Synopsis
 
 This package provides a node for drawing geometric shapes using the trace left by turtlesim.
-Additionally, a second node is provided to control the drawer from a web browser.
+Additionally, a second node is provided to control the drawer from within a web browser.
 
 ### Dependencies
 * [catkin](http://www.ros.org/wiki/catkin) - cmake and Python based buildsystem
