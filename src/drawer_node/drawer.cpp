@@ -36,6 +36,18 @@ vector<double> square_distances(square_distance_array, square_distance_array + s
 double square_angle_array[] = {0, PI/2, PI/2, PI/2, PI/2};
 vector<double> square_angles(square_angle_array, square_angle_array + sizeof(square_angle_array) / sizeof(square_angle_array[0]));
 
+//Pentagon Path definition
+double pentagon_distance_array[] = {0, 2, 2, 2, 2, 2};
+vector<double> pentagon_distances(pentagon_distance_array, pentagon_distance_array + sizeof(pentagon_distance_array) / sizeof(pentagon_distance_array[0]));
+double pentagon_angle_array[] = {0, PI/5*2, PI/5*2, PI/5*2, PI/5*2, PI/5*2};
+vector<double> pentagon_angles(pentagon_angle_array, pentagon_angle_array + sizeof(pentagon_angle_array) / sizeof(pentagon_angle_array[0]));
+
+//Hexagon Path definition
+double hexagon_distance_array[] = {0, 2, 2, 2, 2, 2, 2};
+vector<double> hexagon_distances(hexagon_distance_array, hexagon_distance_array + sizeof(hexagon_distance_array) / sizeof(hexagon_distance_array[0]));
+double hexagon_angle_array[] = {0, PI/3, PI/3, PI/3, PI/3, PI/3, PI/3};
+vector<double> hexagon_angles(hexagon_angle_array, hexagon_angle_array + sizeof(hexagon_angle_array) / sizeof(hexagon_angle_array[0]));
+
 //States
 enum State
 {
@@ -438,6 +450,14 @@ bool Drawer::shapeCallback(turtlesim_drawer::Shape::Request& request, turtlesim_
             Path path(triangle_distances, triangle_angles);
             setPath(path);
             response.current_shape = "triangle";
+        }    else if (request.shape=="pentagon") {
+            Path path(pentagon_distances, pentagon_angles);
+            setPath(path);
+            response.current_shape = "pentagon";
+        }   else if (request.shape=="hexagon") {
+            Path path(hexagon_distances, hexagon_angles);
+            setPath(path);
+            response.current_shape = "hexagon";
         }
     }
 
