@@ -8,8 +8,10 @@ This package provides a node for drawing geometric shapes using the trace left b
 Additionally, a second node is provided to control the drawer from within a web browser.
 
 ### Dependencies
+* [ros](https://github.com/ros) - ROS core stack
 * [catkin](http://www.ros.org/wiki/catkin) - cmake and Python based buildsystem
 * [ros_tutorials](https://github.com/ros/ros_tutorials) - needed for turtlesim
+* [roslibjs](https://github.com/RobotWebTools/roslibjs) - needed for the controller node
 * [flask](https://github.com/pallets/flask) - needed for the controller node
 
 ### Install
