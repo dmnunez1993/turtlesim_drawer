@@ -32,6 +32,8 @@ $( document ).ready(function() {
         $connectionStatus = $('#connectionStatus');
         $connectionStatus.html('Connection established');
         $connectionStatus.css('color', 'green');
+        $('#startStopButton').prop('disabled', false);
+
     });
 
     ros.on('close', function() {
@@ -107,6 +109,7 @@ $( document ).ready(function() {
                     drawer.erase();
                 }
             }
+
             $('#pauseContinueButton').prop('disabled', true);
 
         }   else {
