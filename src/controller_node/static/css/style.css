@@ -3,15 +3,19 @@
 }
 
 .left {
-  width: 45%;
+  width: 48%;
   float: left;
 }
 
 .right {
-  width: 45%;
+  width: 48%;
   float: left;
 }
 
 .figureSelect {
   margin-bottom: 20px;
+}
+
+.container  {
+  min-width: 1360px;
 }

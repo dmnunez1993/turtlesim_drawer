@@ -10,26 +10,28 @@
 </head>
 
 <body>
-  <div class="left">
-    <canvas id="turtleFollower" width="600" height="600">
-    </canvas>
-  </div>
-  <div class="right">
-    <h3>Turtlesim Drawer</h3>
-    <div class="figureSelect">
-      <span>Figure</span>
-      <select id="shapeSelect" disabled>
-        <option value="star" selected>Star</option>
-        <option value="square">Square</option>
-        <option value="triangle">Triangle</option>
-      </select>
+  <div class="container">
+    <div class="left">
+      <canvas id="turtleFollower" width="600" height="600">
+      </canvas>
     </div>
-    <button id="startStopButton" type="button" disabled>Start</button>
-    <button id="pauseContinueButton" type="button" disabled>Pause</button>
-    <script src="{{ url_for('static', filename='js/drawer.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/ros.js') }}"></script>
-    <br />
-    <p id="connectionStatus">Awaiting connection...</p>
+    <div class="right">
+      <h3>Turtlesim Drawer</h3>
+      <div class="figureSelect">
+        <span>Figure</span>
+        <select id="shapeSelect" disabled>
+          <option value="star" selected>Star</option>
+          <option value="square">Square</option>
+          <option value="triangle">Triangle</option>
+        </select>
+      </div>
+      <button id="startStopButton" type="button" disabled>Start</button>
+      <button id="pauseContinueButton" type="button" disabled>Pause</button>
+      <script src="{{ url_for('static', filename='js/drawer.js') }}"></script>
+      <script src="{{ url_for('static', filename='js/ros.js') }}"></script>
+      <br />
+      <p id="connectionStatus">Awaiting connection...</p>
+    </div>
   </div>
 </body>
 </html>
