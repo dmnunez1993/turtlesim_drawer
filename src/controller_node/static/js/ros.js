@@ -40,6 +40,9 @@ $( document ).ready(function() {
         $connectionStatus = $('#connectionStatus');
         $connectionStatus.html('Connection closed!!');
         $connectionStatus.css('color', 'red');
+        $('#startStopButton').prop('disabled', true);
+        $('#pauseContinueButton').prop('disabled', true);
+        $('#shapeSelect').prop('disabled', true);
     });
 
     // Create a connection to the rosbridge WebSocket server.
