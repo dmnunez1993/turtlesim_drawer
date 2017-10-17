@@ -162,9 +162,6 @@ void Drawer::setupDrawer()  {
     path.reset();
     d_first_goal_set = true;
     d_state = FORWARD;
-    cout << d_pose->x << endl;
-    cout << d_pose->y << endl;
-    cout << d_pose->theta << endl;
     d_goal.x = cos(d_pose->theta) * path.getCurrentDistance() + d_pose->x;
     d_goal.y = sin(d_pose->theta) * path.getCurrentDistance() + d_pose->y;
     d_goal.theta = d_pose->theta;
@@ -335,7 +332,7 @@ bool Drawer::startCallback(std_srvs::Empty::Request& request, std_srvs::Empty::R
         ROS_INFO("Starting...");
         reset();
         ros::topic::waitForMessage<turtlesim::Pose>("turtle1/pose", nh);
-        ros::Duration(0.1).sleep(); //Waits for pose callback update
+        ros::Duration(0.8).sleep(); //Waits for pose callback update
         setupDrawer();
         d_last_state = d_state;
         d_state = FORWARD;

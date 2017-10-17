@@ -21,16 +21,23 @@ $( document ).ready(function() {
 
     // If there is an error on the backend, an 'error' emit will be emitted.
     ros.on('error', function(error) {
-    console.log(error);
+        $connectionStatus = $('#connectionStatus');
+        $connectionStatus.html('An error occurred!!');
+        $connectionStatus.css('color', 'red');
     });
 
     // Find out exactly when we made a connection.
     ros.on('connection', function() {
-    console.log('Connection made!');
+        console.log('Connection established');
+        $connectionStatus = $('#connectionStatus');
+        $connectionStatus.html('Connection established');
+        $connectionStatus.css('color', 'green');
     });
 
     ros.on('close', function() {
-    console.log('Connection closed.');
+        $connectionStatus = $('#connectionStatus');
+        $connectionStatus.html('Connection closed!!');
+        $connectionStatus.css('color', 'red');
     });
 
     // Create a connection to the rosbridge WebSocket server.
@@ -59,6 +66,7 @@ $( document ).ready(function() {
           turtle_position.setPosition(turtle_x, turtle_y);
           drawer.gotoxy(turtle_position.x, turtle_position.y);
           drawer.draw();
+
       } else {
           canvas = document.getElementById('turtleFollower');
           w = canvas.width;
@@ -69,7 +77,11 @@ $( document ).ready(function() {
           turtle_position.setPosition(turtle_x, turtle_y);
           drawer = new Drawer();
           drawer.init(canvas, turtle_position.x, turtle_position.y);
+          drawer.gotoxy(turtle_position.x, turtle_position.y);
+          drawer.draw();
       }
+
+
     });
 
     var statTopic = new ROSLIB.Topic({
@@ -90,10 +102,17 @@ $( document ).ready(function() {
         if (!started) {
             if (!start_requested)   {
                 $('#startStopButton').html('Start');
+            }   else {
+                if (drawer) {
+                    drawer.erase();
+                }
             }
+            $('#pauseContinueButton').prop('disabled', true);
+
         }   else {
             $('#startStopButton').prop('disabled', false);
             $('#startStopButton').html('Stop');
+            $('#pauseContinueButton').prop('disabled', false);
             start_requested = false;
         }
         if (started)  {
@@ -143,11 +162,9 @@ $( document ).ready(function() {
             var request = new ROSLIB.ServiceRequest();
 
             startClient.callService(request, function(result) {
-
+                drawer.erase();
+                drawer = null;
             });
-
-            drawer.erase();
-            drawer = null;
 
             start_requested = true;
             $( this ).prop('disabled', true);
