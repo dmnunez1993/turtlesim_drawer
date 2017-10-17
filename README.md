@@ -44,4 +44,6 @@ Launch:
 
     roslaunch turtlesim_drawer turtlesim_drawer.launch
 
+From a web broser visit http://localhost:12000
+
 Enjoy!!
