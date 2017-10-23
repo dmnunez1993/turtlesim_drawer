@@ -13,4 +13,4 @@ def send_file(filename):
     print(filename)
     return send_from_directory(app.static_folder, filename)
 
-app.run(port=12000)
+app.run(host='0.0.0.0', port=12000)
